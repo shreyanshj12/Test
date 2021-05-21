@@ -35,18 +35,22 @@ git --config user.email "xyz@abc.com"
 Navigate to the directory you want to setup version control for in the terminal.
 	git init
 
-This creates a new subdirectory named .git that contains all of your necessary repository files — a Git repository skeleton. At this point, nothing in your project is tracked yet.
+This creates a new subdirectory named .git that contains all of your necessary repository files — a Git repository skeleton. At this point, nothing in your project is tracked yet. So currently they're in working directory.
 
 -----Add to track-----
 
 1. git add filename
 2. git add . ----for all files 
 
+Now the files are in staging area/cache area.
+
 
 -----commit------
 
 commit: Now that we have added the files of our choice, we need to write a message to explain what we have done.
 	git commit -m "message"
+
+After committing, files are in Local repo / commit area.
 
 
 -----create the remote for our repository--------
