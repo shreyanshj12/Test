@@ -26,8 +26,8 @@ To enable coloring:
 
 
 To setup username and email:
-git --config user.name "xyz"
-git --config user.email "xyz@abc.com"
+git --global config user.name "xyz"
+git --global config user.email "xyz@abc.com"
 
 
 -----Initialising git------
