@@ -1,0 +1,174 @@
+								------------Array in JS-------------
+
+creating:
+
+1) const arr = [12,2,32,41,5];
+2) const arr = new Array(1,2,3,4,5);
+3) const mixedArr = [1, 2, 'hello', true, undefined, null, {a:1, b:1}, new Date()];	//array of different data types
+
+
+note : let a = new Array(10);	//creates an array with the specified length (10 here)
+
+When the Array() constructor function is invoked with one numericargument, it uses that argument as an array length. To overcome this, we can use Array.of() from ES6
+
+	Array.of()        // => []; returns empty array with no arguments
+	Array.of(10)      // => [10]; can create arrays with a single numeric argument
+	Array.of(1,2,3)   // => [1, 2, 3]
+
+
+--------IMPORTANT--------
+You can index an array using numbers that are negative or that arenot integers. When you do this, the number is converted to a string, and thatstring is used as the property name. Since the name is not a non-negativeinteger, it is treated as a regular object property, not an array index.
+
+	a[-1.23] = true;  // This creates a property named "-1.23"
+
+if you index an array with a string that happens to be a non-negative integer,it behaves as an array index, not an object property. The same is true if youuse a floating-point number that is the same as an integer:
+
+	a["1000"] = 0;    // This the 1001st element of the array
+	a[1.000] = 1;     // Array index 1. Same as a[1] = 1;
+
+In JavaScript, arrays have no notion of out of bounds error. You simply get undefined.
+	
+	let a = [true, false]; // This array has elements at indexes 0 and 1
+	a[2]                   // => undefined; no element at this index.
+	a[-1]                  // => undefined; no property with this name.
+
+----sparse array-----
+
+If an array literal contains multiple commas in a row, with no valuebetween, the array is sparse.
+eg: let count = [1,,3]; // Elements at indexes 0 and 2. No element at index 1
+
+
+Array elements for which values are omitted do not exist but appear to be undefined if you query them
+eg: let undefs = [,,];  // An array with no elements but a length of 2
+
+
+---You can also make an array sparse with the delete operator.
+---If the array is sparse, the value of the lengthproperty is greater than the number of elements. 
+	
+	let a = new Array(5); // No elements, but a.length is 5.
+	a = [];               // Create an array with no elements and length = 0.
+	a[1000] = 0;          // Assignment adds one element but sets length to 1001.
+
+
+
+
+
+
+
+----------array methods---------------
+
+
+arr.length; 	//size of array
+
+--If you set the length property to a non-negative integer n smaller than its current value, any array elements whose index is greater than or equal to n are deleted from the array:
+	a = [1,2,3,4,5];     // Start with a 5-element array.
+	a.length = 3;        // a is now [1,2,3].
+	a.length = 0;        // Delete all elements.  a is [].
+	a.length = 5;        // Length is 5, but no elements, like new Array(5)
+
+
+
+Array.isArray(arr)	//check if arr is an array
+arr.indexOf(3)		//find index of 3 in arr
+arr.push(6)		//add 6 at the end of arr
+arr.pop()		//remove last element of arr
+arr.unshift(9)		//add 9 at the beginning of arr
+arr.shift()		//removes the element at the front of arr
+arr.reverse()		//reverses the array
+arr1.concat(arr2)	//concatenates arr1 and arr2
+arr.sort()		//sorts arr by the first character of the number i.e --- 12,2,32,41,5 
+
+//to sort the array numerically ascending: 2,5,12,31,41
+	arr.sort((x,y)=>{
+		return x-y;	
+	})
+
+//to sort the array numerically descending: 41,31,12,5,2
+	arr.sort((x,y)=>{
+		return y-x;	
+	})
+
+stringArr.sort()	//sort an array of string alphabetically
+
+
+
+
+
+-------Converting an HTMLCollection to an Array-----------
+
+const lis = document.getElementsByTagName('li');
+console.log(lis);
+lis = Array.from(lis)	//converts the lis collection to lis array. Remember it doesn't work for NodeList.
+lis.forEach(function(li){
+	console.log(li);
+	console.log(li.className);
+	console.log(li.textContent);
+});
+
+
+
+
+
+							-----------Events in JavaScript-------------
+Client-side JavaScript programs use an asynchronous event-drivenprogramming model. The web browser generates an event when it finishesloading a document, when the user moves the mouse over a hyperlink, orwhen the user strikes a key on the keyboard.
+
+An Event Listener watches for an event on an element(EventTarget object) and runs a callback function that we assign.
+			element.addEventListener(event, handler, [options]);
+ 
+	element: specified element from HTML elements, but also any other DOM object
+	event: specified event type (ex, ‘click’, ‘scroll’, ‘submit’ )
+	handler: the function to be called and executed when the event occurs. When event handlersare invoked for an object, we say that the browser has“fired,” 		 “triggered,” or “dispatched” the event.
+	options: optional object[capture, once, passive] specifies characteristics about the event listener. 
+
+example:
+
+	document.querySelector('.clear-task').addEventListener('click', onClick);		//here onClick function will be called when event takes place.
+	
+	function onClick(e){
+		let val;
+		val = e;
+		val = e.target;
+		val = e.target.className;
+		val = e.target.classList;
+		e.target.innerHTML = "hey there";
+		console.log(val);
+	}
+
+
+
+
+
+
+								---------------Objects in JavaScript-------------
+An object is an unordered collection of properties, each of which has a name and a value. 
+
+----There are a total of 8 data types in JavaScript and they are all primitive types except for objects.
+----Objects are special because they can contain more than one data type and works on a key and value system.
+
+
+----Each key-value pair is called as a property. A property can be a function, an array, an object itself or any primitive data type i.e. integer, string, etc.
+
+----A JavaScript object also inherits the properties of another object, known as its “prototype.” The methods of an objectare typically inherited properties, and this “prototypal inheritance” is a key feature of JavaScript.
+
+----Strings,numbers, and booleans are not objects, they can behave like immutable objects.
+
+----Objects are mutable and manipulated by reference rather than by value. If the variable x refers to an object and the code 
+	let y = x; 
+    is executed, the variable y holds a reference to the same object, not a copy of that object. Any modifications made to the object through the variable y are also     visible through the variable x.
+
+	example : 
+	
+		let cow = "Betsy";
+		let cat = { name: "Tibbers", age: 5 };
+		let heffer = cow;
+		let lion = cat;
+		console.log(cow, heffer);		//will log Betsy Betsy
+		heffer = "Daisy";
+		console.log(cow, heffer);		//will log Betsy Daisy
+		console.log(cat.name, lion.name);	//will log Tibbers Tibbers
+		lion.name = "Rwar";
+		console.log(cat.name, lion.name);	//will log Rwar Rwar
+
+
+The major difference between primitive data types and objects is that an object is stored and copied by reference. This means that when you do things to your objects, you’re not directly interacting with the object itself. Rather, you’re dealing with the reference. This is because the object’s size is indefinite while primitive types know exactly the maximum space it might need to store a particular variable. As a result, JavaScript splits the object’s values and uses the property key as a map to the value. So when you copy an object, you are copying the reference and not the actual object itself.
+
