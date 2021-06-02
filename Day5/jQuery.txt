@@ -1,0 +1,213 @@
+-------What is jQuery?
+jQuery is an efficient & fast JavaScript Library created by John Resig in 2006. The motto of jQuery is write less, do more.
+
+
+-------Why use jQuery?
+makes it extremely easy to manipulate the DOM
+jQuery has 1000s of plugins available for free, which improve the user experience. One such example is the AJAX 
+Event handling
+Animations: It comes with plenty of built-in animation effects 
+
+
+
+-----Install jQuery
+There are two ways to install jQuery:
+1. Local Installation: You can directly download jQuery library from their official website and include it in your HTML code
+2. Link to a CDN: You can add jQuery library in your HTML code from Content Delivery Network
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+
+
+--------jQuery Selectors
+jQuery Selectors are used to select and manipulate HTML elements by using the “$()” function. 
+	eg: $("h1").css("color", "red")
+
+
+
+---------jQuery Methods
+
+1. — before()
+The jQuery before() method is used to insert the specified content before the selected elements. 
+	$(selector).before(content);
+
+	eg: $("ul").before("<h2>Money</h2>") //selects the <ul> and adds a <h2> tag which says “Money” right before the <ul> tag. 
+
+
+
+2.  — after()
+The jQuery after() method is used to insert specified content after the selected element. 
+	$(selector).after(content);
+
+3. — text()
+The jQuery text() method is used to set or return the text content of the selected elements. 
+	$(selector).text()
+	$(selector).text(content)
+
+	eg: $("li").text() //selects the <li> (list) and uses the text() method to return the content of the <li>
+	    $("p").text("jQuery Tutorial")  //selects the only <p> tag and replaces the content of the <p> tag with “jQuery Tutorial”.
+
+
+4. — html()
+jQuery html() method is used to set or return the entire content of the selected elements.
+	$(selector).html()
+	$(selector).html(content)
+
+	eg: $("li:first").html()   //selects the first element of the <li> (list) and uses the html() method to return the entire content of the <li>
+	    $("li:last").html("<li> Hey guys</li>")   //selects the last element of the <li> tag and  replaces the content of it with “Hey guys”.
+
+
+5. — css()
+The jQuery css() method is used to get or set style properties for selected elements. 
+	$(selector).css(propertyname);
+	$(selector).css(propertyname, value);
+
+	eg: $("h1").css("background-color", "blue")     //selects the <h1> and applies a background color to it
+	    $("ul li").css("color", "green")	//selects all the elements of the <ul> tag and sets their color to green.
+
+
+6. — attr()
+The jQuery attr() method is used to set or return attributes and values of the selected elements.
+	$(selector).attr(attribute)
+	$(selector).attr(attribute, value)
+
+	eg: $("img").attr("border","5px solid black") // selects all the images (img) and adds solid black border to each image by using the attr() method.
+
+7.  — val()
+The jQuery val() method is used to set or return current values of the selected elements.
+	$(selector).val( )
+	$(selector).val(value)
+
+
+eg: <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                alert("Value: " + $("#sometext").val());
+            });
+        });
+        </script>
+    <input type="text" id="sometext" value=" "></p>
+    <button>Submit</button> 
+
+
+8. — addClass()
+The addClass() method is used to add one or more class to the selected element. Refer the below syntax:
+	$(selector).addClass(classname)
+
+
+eg:
+
+	<script>  
+            $(document).ready(function(){  
+                $("button").click(function(){  
+                    $("img").addClass("styleclass");  
+                });  
+            });  
+    	</script>  
+    <style>  
+            .styleclass {  
+                border: 5px solid green
+            }  
+    </style> 
+    <button>Try addClass() function</button>
+
+
+9. — removeClass()
+The jQuery removeclass( ) method removes one or more class to the selected element. 
+
+eg: similar to addClass, we can do: $("img").removeClass("styleclass")
+
+10. — toggleClass()
+This method toggles between adding and removing one or more class to the selected element. The toggleClass() is a combination of addClass() and removeClass().
+
+	$(selector).toggleClass(classname)
+
+Run the same code you executed for addClass and open the console and try the below command 
+	$("img").toggleClass("styleclass")
+
+
+
+
+
+								---------- AJAX , jQuery, & XHR----------
+
+<script>
+$("button").click(function(){
+  $.ajax({url:"demo_test.txt",success:function(result){
+    $("#div1").html(result);
+  }});
+});
+</script>
+
+
+
+ - Load -
+$(selector).load() will execute an AJAX GET request and will set the content of the selected returned data (which should be either text or HTML). You won’t use $.load(), if the returned data will be JSON which needs to be processed further. Here you would either use $.ajax() or $.get().
+
+	$(selector).load(URL, data, complete);   //data and complete are optional
+
+	--The required URL parameter specifies the URL of the file you want to load.
+	--The optional data parameter specifies a set of query string (i.e. key/value pairs) that is sent to the web server along with the request.
+	--The optional complete parameter is basically a callback function that is executed when the request completes. The callback is fired once for each selected 	  element.
+
+eg:
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").load("test.txt");
+    });
+});
+</script>
+</head>
+<body>
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
+</body>
+
+
+- Get & Post -	The jQuery’s $.get() and $.post() methods provide simple tools to send and retrieve data asynchronously from a web server. 
+
+	$.get(URL, data, success);   —Or—   $.post(URL, data, success)
+
+
+
+
+- $.ajax() -
+$.ajax() gives you full control over the AJAX request. You should use it if the other methods don't fulfill your needs. Sometimes, we need more control over the AJAX calls we want to make. For example, we want to specify what should happen in case an AJAX call fails or we need to perform an AJAX request but its result is only needed if retrieved within a certain amount of time.
+
+	$.ajax(url[, options])
+	$.ajax([options])
+
+
+In its first form, this function performs an AJAX request using the url parameter and the options specified in options. In the second form, the URL is specified in the options parameter, or can be omitted in which case the request is made to the current page.
+
+
+--accepts: The content type sent in the request header that tells the server what kind of response it will accept in return
+--cache: Set this options to false to force requested pages not to be cached by the browser
+--complete: A function to be called when the request finishes (after success and error callbacks are executed)
+--context: An object to use as the context (this) of all Ajax-related callbacks
+--dataType: The type of data expected back from the server
+--password: A password to be used with XMLHttpRequest in response to an HTTP access authentication request
+--statusCode: An object of numeric HTTP codes and functions to be called when the response has the corresponding code
+--timeout: A number that specifies a timeout (in milliseconds) for the request
+--type: The type of request to make, which can be either “POST” or “GET”
+--url: A string containing the URL to which the request is sent
+--username: A username to be used with XMLHttpRequest in response to an HTTP access authentication request
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
