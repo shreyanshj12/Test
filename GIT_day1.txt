@@ -1,0 +1,80 @@
+-------------GIT DAY 1------------
+Git is primarily a distributed version control system. You can work on your code step-by-step, saving each step’s progress along the way in case you need rollback to a backup copy.
+
+Repository (shortly “Repo”) a project that contains multiple files. In our case a repository will contain code-base files. There are two hosting platforms to host our repositories. One, Online (On the cloud) and second, Offline (Self-installed on your server). There are three most popular Git hosting services. They are GitHub (Owned by Microsoft), GitLab (Owned by GitLab) and BitBucket.
+
+git --version : to check which version of git is installed
+
+To enable autocomplete feature in mac:
+
+1. copy and paste in terminal- curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+2. vi ~/.bash_profile
+	--insert mode
+	add
+	    if [ -f ~/.git-completion.bash ]; then
+	     . ~/.git-completion.bash
+	    fi
+
+        --save and exit (:wq)
+
+
+To enable coloring:
+
+1. check if it already exists: git config color.ui
+2. if not, do: git config --global color.ui true
+
+
+
+To setup username and email:
+git --global config user.name "xyz"
+git --global config user.email "xyz@abc.com"
+
+
+-----Initialising git------
+
+Navigate to the directory you want to setup version control for in the terminal.
+	git init
+
+This creates a new subdirectory named .git that contains all of your necessary repository files — a Git repository skeleton. At this point, nothing in your project is tracked yet. So currently they're in working directory.
+
+-----Add to track-----
+
+1. git add filename
+2. git add . ----for all files 
+
+Now the files are in staging area/cache area.
+
+
+-----commit------
+
+commit: Now that we have added the files of our choice, we need to write a message to explain what we have done.
+	git commit -m "message"
+
+After committing, files are in Local repo / commit area.
+
+
+-----create the remote for our repository--------
+
+git remote add origin [HTTPS ADDRESS]
+
+git remote: check whether we have successfully added the remote or not by the following command. And if it output as “origin” you’ve added the remote to your 		    project. NOTE: We can state any name for the remote by changing the name “origin”. For example:
+					git remote add [REMOTE NAME] [HTTPS ADDRESS]
+
+git push origin master:  push our project to GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

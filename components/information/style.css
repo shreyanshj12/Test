@@ -1,0 +1,85 @@
+.ipv{
+    margin-top:10px;
+    margin-left: 25%;
+    
+    background-color: whitesmoke;
+    width: 50%;
+    height: 30px;
+}
+
+.ipv-data{
+    /* padding-top: 3px; */
+    padding-left: 10px;
+}
+
+.image{
+    width:10%;
+    height: 10%;
+    margin-left:26%;
+    margin-top: 30px;
+}
+
+.drop-down{
+    background-color: yellow;
+    color: black;
+}
+
+.product-info{
+    margin-left: 40%;
+    margin-top: -14%;
+    width: 400px;
+}
+
+.details{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info-table{
+    width: 100%;
+    margin-left: 25%;
+    margin-top: 6%;
+    overflow: auto;
+    height: 100px;
+
+}
+
+.container{
+    width: 50%;
+    height: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+    .ipv-data{
+        font-size: smaller; 
+    }
+
+    .ipv{
+        margin-top: -10px;
+    }
+
+    .product-info{
+        width: 150px;
+    }
+
+    .details{
+        font-size: smaller;
+    }
+
+    .container{
+        font-size: x-small;
+    }
+
+    .header{
+        width: 50%;
+        margin-left: ;
+    }
+
+    .flow{
+        font-size: medium;
+        margin-left: 20%;
+    }
+
+    .user-profile{
+        margin-left: 55%;
+    }
+}

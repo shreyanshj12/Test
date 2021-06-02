@@ -1,0 +1,257 @@
+Super Key – This is a set of attributes which can uniquely identify a tuple. So, a candidate key, primary key, and a unique key is a superkey, but vice-versa isn’t true. (student id, student name)
+
+Candidate Key –  This is a minimal set of attributes which can uniquely identify a table. Basically a minimal set of super key (i.e out of the multiple possible super key,we only choose one of them)
+eg: C.K 1 - student id
+    C.K 2 - student phone
+
+Primary Key – is a column or group of columns in a table that uniquely identify every row in that table. It can't be NULL. 
+
+Foreign Key -  is a column that creates a relationship between two tables. The purpose of Foreign keys is to maintain data integrity and allow navigation between two different instances of an entity. It can be NULL.  example: department id
+
+Composite Key -  2 or more attributes which aims to uniquely identify each record. For example, student with id 1 can have different subjects exam. So we can choose student id and subject id together to identify the record.
+
+
+
+SHOW TABLES -------to list all the tables in our database
+SELECT * FROM TABLE_NAME ---------to list the table data
+DESC TABLE_NAME---------
+DROP DATABASE db_name ----------deletes the database (needs admin privilege)
+DROP TABLE table_name ----------deletes the specified table
+SHOW COLUMNS FROM table_name ---------shows all the columns in a table (just like DESC TABLE_NAME)
+SHOW CREATE DATABASE db_name --------shows all the commands that you executed while creating the database
+SHOW CREATE TABLE table_name --------shows all the commands that you executed while creating the table
+
+
+Date and time functions in mysql:
+NOW() - returns current date and time
+CURDATE() - returns current date
+CURTIME() - returns current time
+GETDATE() - returns current date
+
+
+
+select salary from employees where dep_id!=1001 and dep_id!=2001;
+select salary from employees where dep_id not in (1001,2001);
+select * from employees where (salary between 1000 and 5000) and dep_id in (1001,2001);
+
+
+
+-------Like--------
+
+% : zero or more characters
+eg- 'Geek%' ----starting with geek
+    '%show' ----ending with shows
+    '%sh%' ----containing sh
+
+_ : one single character
+
+eg- 'show_' ---starting with show then any character
+    '_eek' ----any character then eek
+    'G_e_k' ---G then any char, then e then any char
+
+
+select * from employees where emp_name like '%R';
+select * from employees where emp_name not like '%R';
+
+--------escape clause---------
+
+
+
+------ORDER BY---------
+
+select * from employees order by emp_name (by default, ascending order i.e low to high, a to z)
+select * from employees order by emp_name desc; 
+select * from employees where salary not between 1000 and 1500 order by salary;
+
+
+---------NOT NULL---------
+this means that a field cannot be empty, you have to insert value in it. For example, when we create a new account, we need to give email id or mobile number for registeration.
+
+You can't insert a new value or update the record in the table without adding a value to the field which is not null because the default value isn't NULL anymore.
+eg: 
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+---if the table is already created and you want to change the column to NOT NULL:
+
+ALTER TABLE Persons
+MODIFY Age int NOT NULL;
+
+
+--------UNIQUE KEY constraint--------
+1. The UNIQUE constraint ensures that all values in a column are different. For example, emp_id are always different for different employees, emp_email is always different for different employees. 
+2. There can be more than one unique key in a table. Eg: emp_id, emp_email, emp_mobilenum
+3. Unique key can have NULL value.
+
+eg: 
+
+CREATE TABLE students  
+(  
+emp_id int UNIQUE,  
+LastName varchar (255) NOT NULL,  
+FirstName varchar (255),
+emp_email varchar (255) UNIQUE,  
+City varchar (255)  
+)  
+
+
+------Primary key---------
+
+
+
+
+
+
+
+
+------Foreign Key---------
+A foreign key in one table points to a primary key in another table.
+A foreign key can have a different name than the primary key it comes from.
+Foreign key value can be null even though primary key value can't.
+Foreign key don't have to unique. In fact, they aren't (one to many relationship).
+The data type of the primary key and the foreign key should be same.
+The primary key used by the foreign key is called as Parent key. The table where the primary key is from, is called as Parent table.The table having foreign key is called as Child Table.
+By using foreign key, we can make sure that one row in a table has a corresponding row in another table.
+
+
+Foreign key on Create Table example: lec 105-109
+	
+	CREATE TABLE Orders (
+    	    OrderID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	    OrderNumber int NOT NULL,
+	    PersonID int, //this is our foreign key
+	    CONSTRAINT FK_PersonOrder			//constraint clause allows to name the foreign key, it helps in altering or removing it later. it is optional.
+	    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID) //references clause specifies the parent table (Persons in this case) 
+	);
+
+
+To find the CONSTRAINT name :                              SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_NAME='Orders';    //this is fixed syntax
+
+To add Foreign Key Constraint in already created table:    ALTER TABLE Orders ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+To DROP the foreign key constraint:                        ALTER TABLE Orders DROP FOREIGN KEY FK_PersonOrder;
+
+---------RENAME TABLE----------
+
+syntax: RENAME old_name To new_name;  
+
+eg: RENAME STUDENTS TO ARTISTS;  
+
+
+
+
+
+------Functions---------
+MIN(column name) - smallest value of selected column    eg: SELECT min(salary) from Emp;   (or: SELECT min(salary) as newsalary from Emp;)
+MAX(column name) - largest value of selected column     eg: SELECT max(salary) from Emp;
+SUM(column name) - total sum of numeric column          eg: SELECT sum(salary) from Emp;
+AVG(column name) - average value of a numeric column    eg: SELECT avg(salary) from Emp;
+SQRT(column name) - square root of a numeric column
+ROUND(column name,digit after decimal) - rounds the numeric field to number of decimals specified         eg: SELECT EMP_DEPT, ROUND(EMP_DEPT,2) FROM emp_details;
+
+
+COUNT(columne name) - returns the number of rows in a table. But it doesn't count the NULL values.
+
+eg: SELECT COUNT(emp_name) FROM employees;
+    SELECT COUNT(emp_name) FROM employees where emp_id=9;
+    SELECT COUNT(*) FROM employees;     // * is used to return number of records in table
+    SELECT COUNT(DISTINCT emp_name) FROM employees;     //returns total distinct name    
+
+UPPER/UCASE(column name) - converts a field value to upper case
+LOWER/LCASE(column name) - converts a field value to lower case
+
+eg:  SELECT LCASE(emp_name) FROM employees;
+     SELECT UCASE(emp_name) FROM employees;
+     SELECT UCASE(emp_name) AS name, emp_city FROM employees;   //shows emp_names in the names column (uppercase) and emp_city (not converted to uppercase). 
+
+
+CONCAT(column_one/str1, column_two/str2) - adds/concatenates the two strings/columns together
+
+eg: SELECT CONCAT(emp_name, ' has id ', emp_id) from employees;    //result: Rahul has id 101
+    SELECT CONCAT('W3Schools', '.com');       //result: W3Schools.com
+    
+To concat more than two values, we can use + 
+
+    SELECT CONCAT('My'+' '+'name '+'is '+'Shreyansh');
+
+REVERSE(column) - reverses the characters of the strings in the specified column. Works only in case of string, not numbers.
+
+eg: SELECT REVERSE(emp_name) FROM employees;
+
+
+
+Why we need multiple tables? 
+To maintain atomicity. We don't want one column to have more than one value. One value in each column.
+
+----------ONE TO ONE RELATION---------
+In a one-to-one relationship, one record in a table is associated with one and only one record in another table. For example, in India, each person has only one aadhar ID, and each aadhar ID is assigned to only one person. In one to one relationship, we usually don't use two tables because in one table only, you can add the columns/attributes of the second table.
+
+--------ONE TO MANY RELATION----------- (real world eg: a father can have many children)
+In a one-to-many relationship, one record in a table can be associated with one or more records in another table. For example, each customer can have make more than one orders.
+
+
+
+----------MANY TO MANY RELATION---------
+
+
+
+
+---------Normalization--------------
+NORMALIZATION is a database design technique that reduces data redundancy. Normalization rules divides larger tables into smaller tables and links them using relationships. The purpose of Normalization in SQL is to eliminate redundant (repetitive) data and ensure data is stored logically.
+
+However, in most practical applications, normalization achieves its best in 3rd Normal Form. 
+
+1NF : Each table cell should contain a single value. Each record needs to be unique.
+
+2NF : The entity should be considered already in 1NF, and all attributes within the entity should depend solely on the unique identifier of the entity (non key should be dependent on the primary key).
+
+3NF : The entity should be considered already in 2NF, and no column entry should be dependent on any other entry (value) other than the key for the table (non key columns are independent of other non key columns).
+
+
+
+
+
+
+
+
+
+-----------------JOINS IN SQL-----------------------
+
+A) CROSS JOIN: 
+
+The CROSS JOIN is used to generate a paired combination of each row of the first table with each row of the second table. This join type is also known as cartesian join.
+
+There are 3 ways to do this: 
+1.   SELECT * FROM table1 CROSS JOIN table2;
+2.   SELECT foods.item_name,foods.item_unit, company.company_name,company.company_city FROM foods,company;
+3.   SELECT * FROM table1, table2 (we can omit the keyword CROSS JOIN).
+
+
+
+B) LEFT JOIN: Returns all records from the left table, and the matched records from the right table
+
+		SELECT column_name(s)
+		FROM table1
+		LEFT JOIN table2
+		ON table1.column_name = table2.column_name;
+
+C) RIGHT JOIN: Returns all records from the right table, and the matched records from the left table.
+
+		SELECT column_name(s)
+		FROM table1
+		RIGHT JOIN table2
+		ON table1.column_name = table2.column_name;
+
+D) FULL JOIN: Returns all records when there is a match in either left or right table
+
+		SELECT column_name(s)
+		FROM table1
+		FULL OUTER JOIN table2
+		ON table1.column_name = table2.column_name
+		WHERE condition;
+
+
