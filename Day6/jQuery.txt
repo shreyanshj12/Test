@@ -6,6 +6,7 @@ jQuery is an efficient & fast JavaScript Library created by John Resig in 2006. 
 makes it extremely easy to manipulate the DOM
 jQuery has 1000s of plugins available for free, which improve the user experience. One such example is the AJAX 
 Event handling
+Light weight compared to other js libraries. 
 Animations: It comes with plenty of built-in animation effects 
 
 
@@ -22,9 +23,34 @@ There are two ways to install jQuery:
 
 
 
+To know if jQuery is installed correctly: go to developer tools and in the console, type window.jQuery
+
 --------jQuery Selectors
 jQuery Selectors are used to select and manipulate HTML elements by using the “$()” function. 
 	eg: $("h1").css("color", "red")
+
+
+
+--------jQuery syntax
+Generally, the syntax is:
+	<script>
+		$(function(){
+
+		})
+	</script>
+
+
+Note: if you are using other libraries that use the $ symbol then jQuery syntax is:
+
+	<script>
+		(function($){
+			$('h1').hide();
+		}(jQuery))
+	
+	</script>
+
+
+
 
 
 
@@ -58,23 +84,43 @@ jQuery html() method is used to set or return the entire content of the selected
 
 	eg: $("li:first").html()   //selects the first element of the <li> (list) and uses the html() method to return the entire content of the <li>
 	    $("li:last").html("<li> Hey guys</li>")   //selects the last element of the <li> tag and  replaces the content of it with “Hey guys”.
-
+	    $("li:odd").html("ODD elements")	//selects the odd elements from the list and replaces the content of them with "ODD elements".
 
 5. — css()
 The jQuery css() method is used to get or set style properties for selected elements. 
 	$(selector).css(propertyname);
 	$(selector).css(propertyname, value);
 
-	eg: $("h1").css("background-color", "blue")     //selects the <h1> and applies a background color to it
-	    $("ul li").css("color", "green")	//selects all the elements of the <ul> tag and sets their color to green.
-
+	eg: $("h1").css("background-color", "blue")     //selects the <h1> and applies a background colour to it
+	    $("ul li").css("color", "green")	//selects all the elements of the <ul> tag and sets their colour to green.
+	    $(".highlight:even").css("color","red")	//selects all the even numbered elements of class highlight and changes their colour to red.
+	    $(".highlight:nth-child(2)").css("color","blue")	//selects the second element of highlight class and changes its colour to blue.
 
 6. — attr()
 The jQuery attr() method is used to set or return attributes and values of the selected elements.
 	$(selector).attr(attribute)
 	$(selector).attr(attribute, value)
 
-	eg: $("img").attr("border","5px solid black") // selects all the images (img) and adds solid black border to each image by using the attr() method.
+	eg: $("img").attr("border","5px solid black") // selects all the images (img) and adds solid black border to each image by using the attr() method.    
+	    $("img").attr('height')	//selects the image and shows its height
+	    $("img").attr('src')	//selects the image and tells the source of it
+	    $("img").attr('alt')	//selects the image and displays the alternate text (if it has)
+	    $("img").attr('alt','This is the new alternate text')	//selects the image and updates the alternate text to This is the new alternate text
+	    $("img").attr('src','new src of image')	//selects the image and updates or sets the source of image to whatever new source you have provided
+
+To update multiple attributes at same time we can use json format
+
+
+	eg: 
+	$("img").attr({
+	  src: "path_to_new_src",
+	  alt: "new alt text",
+	  height: "200px",
+	  width: "100px",
+	});	
+
+
+
 
 7.  — val()
 The jQuery val() method is used to set or return current values of the selected elements.
@@ -128,6 +174,70 @@ This method toggles between adding and removing one or more class to the selecte
 Run the same code you executed for addClass and open the console and try the below command 
 	$("img").toggleClass("styleclass")
 
+
+
+
+
+
+
+
+								---------MULTIPLE SELECTION----------
+Suppose we have 8 ul elements. 
+
+    <ul class="highlight">One</ul>
+    <ul class="highlight">Two</ul>
+    <ul class="highlight">Three</ul>
+    <ul class="highlight">Four</ul>
+    <ul class="highlight">Five</ul>
+    <ul class="highlight">Six</ul>
+    <ul class="highlight">Seven</ul>
+    <ul class="highlight">Eight</ul>
+
+If we do: $('ul').css('color','red') then all the ul items will be coloured red.
+
+If we want item 3 to be coloured red: $('ul:eq(2)').css('color','red')	//eq means equals. It selects the element with index equal to whatever is given, 2 in this case.
+
+If we want all items from five to eight coloured blue:  $('ul:gt(3)').css('color','blue')	//gt means greater than the index given
+
+Similarly, we can use: $('ul:lt(3)').css('color','green')	//lt means less than index given
+
+
+We can also use JavaScript loops :
+	
+	for(x=0; x < $('ul').length; x++){
+		
+		$('ul: eq('+x+')').html(x+1))
+
+	}
+
+
+$('li, p').html('hello world')
+
+
+
+								----------Event handling and Selection filtering---------
+
+
+
+The following code changes the colour of an li element when clicked on it if it has a class of highlight
+
+$(function () {
+  $("li").click(function () {
+    $(this).filter(".highlight").css("color", "red");
+  });
+});
+
+
+
+The following code changes the colour of an li element to red when clicked on the paragraph if the li element has span tag in it 
+		for eg: <li class="highlight"><span>This li will change to red</span></li>
+
+
+$(function () {
+  $("p").click(function () {
+    $("li").has("span").css("color", "red");
+  });
+});
 
 
 
