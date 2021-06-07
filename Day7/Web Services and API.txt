@@ -1,0 +1,187 @@
+								------Web Services-------
+
+Web service is a technology by which two or more remote web applications interact with each other over network/internet. It can be implemented using Java, .net, PHP, etc. Web pages allow people to communicate and collaborate with each other while web services allow programs to communicate and collaborate with each other.
+
+A web service is essentially a collection of open protocols and standards used for exchanging data between applications or systems. Software applications written in various programming languages and running on various platforms can use web services to exchange data over computer networks like the Internet.
+
+
+All the standard Web Services works using the following components.
+--SOAP (Simple Object Access Protocol)
+--UDDI (Universal Description, Discovery, and Integration)
+--WSDL (Web Services Description Language)
+
+
+							------------What is a SIMPLE OBJECT ACCESS PROTOCOL (SOAP)?----------
+
+SOAP is an XML-based protocol for accessing web services over HTTP. It has some specification which could be used across all applications.
+
+Exchanging data between applications is crucial in today’s networked world. But data exchange between these heterogeneous applications would be complex. So will be the complexity of the code to accomplish this data exchange. One of the methods used to combat this complexity is to use XML (Extensible Markup Language) as the intermediate language for exchanging data between applications.
+
+SOAP was designed to work with XML over HTTP and have some sort of specification which could be used across all applications.
+
+
+							------------Advantages of SOAP-------------
+
+SOAP is the protocol used for data interchange between applications. Below are some of the reasons as to why SOAP is used.
+
+When developing Web services, you need to have some language which can be used for web services to talk with client applications. SOAP is the perfect medium which was developed in order to achieve this purpose. 
+
+SOAP is a light-weight protocol that is used for data interchange between applications. Since SOAP is based on the XML language, which itself is a lightweight data-interchange language, hence SOAP as a protocol that also falls in the same category.
+
+SOAP is designed to be platform independent and is also designed to be operating system independent. So the SOAP protocol can work any programming language based applications on both Windows and Linux platform.
+
+It works on the HTTP protocol –SOAP works on the HTTP protocol, which is the default protocol used by all web applications. Hence, there is no sort of customization which is required to run the web services built on the SOAP protocol to work on the World Wide Web.
+
+
+
+							--------------Marshalling and Demarshalling------------
+A simple SOAP Message has the following elements:
+	The Envelope element
+	The header element and
+	The body element
+	The Fault element (Optional)
+
+
+The client would format the information regarding the procedure call and any arguments into a SOAP message and sends it to the server as part of an HTTP request. This process of encapsulating the data into a SOAP message was known as Marshalling.
+
+The server would then unwrap the message sent by the client, see what the client requested for and then send the appropriate response back to the client as a SOAP message. The practice of unwrapping a request sent by the client is known as demarshalling.
+
+
+
+
+
+
+
+
+
+
+
+
+
+								-----------What Is an API-----------
+
+
+Wikipedia gives a broad definition:
+“In computer programming, an application programming interface (API) is a set of subroutine definitions, protocols, and tools for building application software. In general terms, it is a set of clearly defined methods of communication between various software components”.
+
+In general, APIs define the rules that programmers must follow in order to interact with a programming language, a software library, or any other software tool.  
+
+APIs are a set of rules for interacting with a webserver (such as a Salesforce server), with the most common use case being data retrieval. API’s provide mechanisms for CRM customers to access and manipulate data stored by the API provider (Salesforce in this example). The user makes a “request” to a Salesforce webserver, that webserver accesses a Salesforce database (with the customers data), and returns it to the requester in a “response”.
+
+
+This same request/response cycle is used when you access webpages in your browser. The major difference between an “API request” and a “webpage request” is what kind of data is provided in the response. A website returns HTML, CSS, and JavaScript which work together with your browser to render a webpage. Web APIs respond with data in a raw format, not intended to be rendered by a browser into a user experience. JSON and XML are the most common formats used for this raw data.
+
+
+								---------Why Use APIs?----------
+
+The availability of the raw data has made it possible for 3rd party developers to release phone apps that display the same data with custom presentation. Many other API’s are built with the intentions to allow 3rd party developers to build interesting applications using company data.
+
+
+Because the APIs simply provide data, there are no limits on how a company can then go on to use that data. Furthermore, these programs can be automated to run on a schedule reducing the need for someone to navigate the complex steps of exporting data manually via the Salesforce web interface. As businesses scale up, many find that the initial cost of building such an integration can save employees time and sanity by removing the need to interact regularly with a complex and sometimes frustrating web interface.
+
+
+Another benefit of Web APIs is that, because they are built around the HTTP protocol, nearly any programming language can be used to access them.
+
+
+
+
+
+							-----------What is REST API?-----------
+
+
+
+REST suggests to create an object of the data requested by the client and send the values of the object in response to the user. For example, if the user is requesting for a movie in Bangalore at a certain place and time, then you can create an object on the server side.
+So, over here, you have an object and you are sending the state of an object. This is why REST is known as Representational State Transfer.
+
+
+It means when a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource.
+For example, when a developer calls Instagram API to fetch a specific user (the resource), the API will return the state of that user, including their name, the number of posts that user posted on Instagram so far, how many followers they have, and more.
+The representation of the state can be in a JSON format, and probably for most APIs this is indeed the case. It can also be in XML or HTML format.
+
+If I have to define REST, then, Representational State Transfer a.k.a REST is an architectural style as well as an approach for communications purpose that is often used in various web services development
+
+
+
+							---------Principles of REST API-----------
+
+Below are the six guiding principles of REST:
+
+1. Stateless
+The requests sent from a client to a server will contain all the required information to make the server understand the requests sent from the client. This can be either a part of URL, query-string parameters, body, or even headers. The URL is used to uniquely identify the resource and the body holds the state of the requesting resource. Once the server processes the request, a response is sent to the client through body, status or headers.
+
+
+2. Client-Server
+The client-server architecture enables a uniform interface and separates clients from the servers. This enhances the portability across multiple platforms as well as the scalability of the server components.
+
+
+3. Uniform Interface
+To obtain the uniformity throughout the application, REST has the following four interface constraints:
+	Resource identification
+	Resource Manipulation using representations
+	Self-descriptive messages
+	Hypermedia as the engine of application state
+
+
+4. Cacheable
+In order to provide a better performance, the applications are often made cacheable. This is done by labeling the response from the server as cacheable or non-cacheable either implicitly or explicitly. If the response is defined as cacheable, then the client cache can reuse the response data for equivalent responses in the future.
+
+
+5. Layered system
+The layered system architecture allows an application to be more stable by limiting component behavior. This type of architecture helps in enhancing the application’s security as components in each layer cannot interact beyond the next immediate layer they are in. Also, it enables load balancing and provides shared caches for promoting scalability.
+
+
+6. Code on demand
+This is an optional constraint and is used the least. It permits a clients code or applets to be downloaded and to be used within the application. In essence, it simplifies the clients by creating a smart application which doesn’t rely on its own code structure.
+
+
+
+
+
+
+
+
+								--------------FRONTEND AND BACKEND------------
+
+The front end, also called “client-side” programming, is what happens in the browser. It’s everything the user sees and interacts with.
+
+When the user types the URL of your website or web applications and downloads your mobile application, they view an interface with the ultra-clean layout of it. This user faced interface is called front-end in the technology arena.
+
+The back end, also called “server-side” programming, happens on the server and the database. It’s the machinery that works behind the scenes to power those fancy features users interact with on the client-side. It stores and manages the data and makes sure everything works seamlessly on the client-side of the website.
+
+
+
+The essentials of backend web development include languages such as Java, Ruby, Python, PHP, .Net, etc. The most common frontend languages are HTML, CSS, and JavaScript.
+
+
+
+								-------------HTTP and its methods------------
+
+Hypertext transfer protocol (HTTP) is a method for encoding and transporting data between a client and a server. It is a request/response protocol: clients issue requests and servers issue responses with relevant content and completion status info about the request. HTTP is self-contained, allowing requests and responses to flow through many intermediate routers and servers that perform load balancing, caching, encryption, and compression. HTTP is an application layer protocol relying on lower-level protocols such as TCP and UDP.
+
+
+A basic HTTP request consists of a verb (method) and a resource (endpoint). Below are common HTTP verbs:
+
+Verb	Description		Idempotent*		Safe		Cacheable
+GET	Reads a resource		Yes			Yes		Yes
+POST	Creates a resource or 
+	trigger a process that 
+	handles data		No			No		Yes if response contains freshness info
+PUT	Creates or replace a
+	resource			Yes			No		No
+PATCH	Partially updates a 
+	resource			No			No		Yes if response contains freshness info
+DELETE	Deletes a resource	Yes			No		No
+
+
+
+
+
+
+
+
+
+
+
+
+
+
