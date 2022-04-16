@@ -62,7 +62,7 @@ git remote: check whether we have successfully added the remote or not by the fo
 
 git push origin master:  push our project to GitHub
 
-
+managing private access token: https://www.youtube.com/watch?v=kHkQnuYzwoo
 
 
 
