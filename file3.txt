@@ -1,0 +1,17 @@
+----To use multiple java versions on MacOS----
+
+1. Check if you have multiple JAVA versions installed: /usr/libexec/java_home -V
+    Output: Matching Java Virtual Machines (4):
+            17.0.5 (x86_64) "Amazon.com Inc." - "Amazon Corretto 17" /Users/username/Library/Java/JavaVirtualMachines/corretto-17.0.5/Contents/Home
+            11.0.10 (x86_64) "Oracle Corporation" - "Java SE 11.0.10" /Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home
+            1.8.144.01 (x86_64) "Oracle Corporation" - "Java" /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+
+2. Add the following to .zshrc:
+    export JAVA_11_HOME=$(/usr/libexec/java_home -v 11.0.10)
+    export JAVA_17_HOME=$(/usr/libexec/java_home -v 17.0.5)
+    alias java11='export JAVA_HOME=$JAVA_11_HOME'
+    alias java17='export JAVA_HOME=$JAVA_17_HOME'
+    
+3. Press- :wq and save changes. 
+4. Run- source .zshrc
+5. Run java11 to use JDK 11 and java17 to use JDK 17. Check if you are using desired version by running java -version 
