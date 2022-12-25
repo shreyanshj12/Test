@@ -15,3 +15,9 @@
 3. Press- :wq and save changes. 
 4. Run- source .zshrc
 5. Run java11 to use JDK 11 and java17 to use JDK 17. Check if you are using desired version by running java -version 
+
+
+
+IF YOU GET THE ERROR: Cannot Resolve Symbol @SpringBootApplication - IntelliJ DEA
+
+TRY - Second answer here: https://stackoverflow.com/questions/52633342/cannot-resolve-symbol-springbootapplication-intellij-dea/52633454#52633454 
