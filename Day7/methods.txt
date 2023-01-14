@@ -1,0 +1,9 @@
+---------------------String to int-----------------------
+
+String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+int inputNumber=1234;
+String convertedNumber = "";
+for(int n=inputNumber; n>0; n/=10)
+    convertedNumber = digits[n % 10] + convertedNumber;
+System.out.println(convertedNumber);
