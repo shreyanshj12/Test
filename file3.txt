@@ -19,7 +19,9 @@
 
 -----To use multiple aws profiles (accounts) in CLI-------
 
-See https://stackoverflow.com/questions/593334/how-to-use-multiple-aws-accounts-from-the-command-line
+See: https://stackoverflow.com/questions/593334/how-to-use-multiple-aws-accounts-from-the-command-line
+
+-> To see the current aws account being used in CLI: aws sts get-caller-identity --query "Account" --output text
 
 
 
