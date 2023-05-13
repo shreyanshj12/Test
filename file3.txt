@@ -30,6 +30,16 @@ IF YOU GET THE ERROR: Cannot Resolve Symbol @SpringBootApplication - IntelliJ DE
 TRY - Second answer here: https://stackoverflow.com/questions/52633342/cannot-resolve-symbol-springbootapplication-intellij-dea/52633454#52633454 
 
 
+-----@DataJpaTest-----
+When using @DataJpaTest annotation, if you get the error: 
+"BeanCreationException: Error creating bean with name 'dataSource': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Cannot determine embedded database for tests."
+
+Reason: By default DataJpaTest replaces your DataSource with an embedded database but you don't have one.
+solution: add to your test class - @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+also, if you're using @DataJpaTest for Integration testing, then use @Rollback(value=false) otherwise you won't see changes in DB.
+
+for more info, see: https://stackoverflow.com/questions/41315386/spring-boot-1-4-datajpatest-error-creating-bean-with-name-datasource
+
 ------reset mysql root password in mac-------
 1. Go to system preferences > mysql > stop server
 2. Open terminal and run: mysqld_safe --skip-grant-tables
