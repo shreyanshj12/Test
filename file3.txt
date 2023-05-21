@@ -21,6 +21,10 @@
 see last answer: https://stackoverflow.com/questions/19952500/how-fix-all-check-style-issues-with-intellij-idea
 
 
+------ Convert plain Java project to Maven project -----
+https://www.jetbrains.com/help/idea/convert-a-regular-project-into-a-maven-project.html#add_maven_support
+basically: right click on your project root and click on Add Framework support (refer: https://stackoverflow.com/a/76298792/11738929)
+
 
 -----To use multiple aws profiles (accounts) in CLI-------
 
