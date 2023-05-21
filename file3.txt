@@ -17,6 +17,11 @@
 5. Run java11 to use JDK 11 and java17 to use JDK 17. Check if you are using desired version by running java -version 
 
 
+------ Resolving checkstyle issues automatically ------
+see last answer: https://stackoverflow.com/questions/19952500/how-fix-all-check-style-issues-with-intellij-idea
+
+
+
 -----To use multiple aws profiles (accounts) in CLI-------
 
 See: https://stackoverflow.com/questions/593334/how-to-use-multiple-aws-accounts-from-the-command-line
