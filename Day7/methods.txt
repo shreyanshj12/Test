@@ -7,3 +7,7 @@ String convertedNumber = "";
 for(int n=inputNumber; n>0; n/=10)
     convertedNumber = digits[n % 10] + convertedNumber;
 System.out.println(convertedNumber);
+
+
+------Storing 10^18 in Java-------
+Use `long` data type to store large numbers in Java (see https://stackoverflow.com/questions/1938855/how-to-store-a-large-10-digits-integer)
