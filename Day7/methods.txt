@@ -11,3 +11,6 @@ System.out.println(convertedNumber);
 
 ------Storing 10^18 in Java-------
 Use `long` data type to store large numbers in Java (see https://stackoverflow.com/questions/1938855/how-to-store-a-large-10-digits-integer)
+
+------Taking char input in Java-----
+see your submission here: https://codeforces.com/contest/404/submission/221046393
