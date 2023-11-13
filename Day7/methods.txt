@@ -14,3 +14,11 @@ Use `long` data type to store large numbers in Java (see https://stackoverflow.c
 
 ------Taking char input in Java-----
 see your submission here: https://codeforces.com/contest/404/submission/221046393
+
+
+-----To check whether given time in 24hrs format is palindrome or not, use:
+	        if(hour%10==min/10 && hour/10==min%10)
+Q. How to extract hours and minute from string input "16:31" 
+    - https://codeforces.com/contest/108/submission/231529932
+    - int hour=Integer.parseInt(time.substring(0,2));
+	  int min=Integer.parseInt(time.substring(3,5));
