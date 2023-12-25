@@ -21,6 +21,12 @@
 see last answer: https://stackoverflow.com/questions/19952500/how-fix-all-check-style-issues-with-intellij-idea
 
 
+------ Migrating from Spring Boot 2 to 3.x.x
+see first and second answer here: https://stackoverflow.com/questions/74931848/spring-boot-3-x-upgrade-could-not-resolve-org-springframework-bootspring-boot
+
+also see: https://www.youtube.com/watch?v=VWdNfvNFXUc
+
+
 ------ To merge changes from master branch into feature branch------
 https://www.togaware.com/linux/survivor/Git_Merge_Master_into.html
 
