@@ -12,6 +12,27 @@ System.out.println(convertedNumber);
 ------Storing 10^18 in Java-------
 Use `long` data type to store large numbers in Java (see https://stackoverflow.com/questions/1938855/how-to-store-a-large-10-digits-integer)
 
+
+------Storing 10^9 in Java-------
+Use `int` data type to store numbers<= 10^9 in Java
+
+------Taking String input in Java------
+Use sc.next() for taking input of String without space
+Use sc.nextLine() for taking input of String with space
+
+
+------To sort list in reverse order------
+list.sort(Comparator.reverseOrder());
+See for more info: https://stackoverflow.com/questions/18073590/sort-list-in-reverse-in-order
+
+
+------- For creating array of long type-------
+Just declare the size of array of int type , because we cannot declare the size of array as long type ,rather we can store the long type in it
+    
+    int n = sc.nextInt();
+    long[] arr = new long[n];
+
+
 ------Taking char input in Java-----
 see your submission here: https://codeforces.com/contest/404/submission/221046393
 
