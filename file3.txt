@@ -21,6 +21,14 @@
 see last answer: https://stackoverflow.com/questions/19952500/how-fix-all-check-style-issues-with-intellij-idea
 
 
+------ Make sure intelliJ doesn't use wildcard imports ( * )
+1. Go to : Preferences > Editor > Code Style > Java > Imports
+2. Select "Use single name import" and remove all packages from the below list you see there
+3. Set Class count to use import with '*' to 999
+4. Set Names count to use static import with '*' to 999
+see here : https://stackoverflow.com/questions/3348816/intellij-never-use-wildcard-imports/25916603#25916603
+
+
 ------ Migrating from Spring Boot 2 to 3.x.x
 see first and second answer here: https://stackoverflow.com/questions/74931848/spring-boot-3-x-upgrade-could-not-resolve-org-springframework-bootspring-boot
 
