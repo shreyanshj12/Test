@@ -16,6 +16,10 @@
 4. Run- source .zshrc
 5. Run java11 to use JDK 11 and java17 to use JDK 17. Check if you are using desired version by running java -version 
 
+-----To remove a specific Java version from MacOS------
+Run this command to just remove the JDK: 
+           sudo rm -rf /Library/Java/JavaVirtualMachines/jdk<version>.jdk
+see more at: https://stackoverflow.com/questions/19039752/removing-java-8-jdk-from-mac
 
 ------ Resolving checkstyle issues automatically ------
 see last answer: https://stackoverflow.com/questions/19952500/how-fix-all-check-style-issues-with-intellij-idea
