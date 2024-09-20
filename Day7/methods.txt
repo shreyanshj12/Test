@@ -32,6 +32,15 @@ Just declare the size of array of int type , because we cannot declare the size 
     int n = sc.nextInt();
     long[] arr = new long[n];
 
+-------- To delete a specific character from string at given index --------
+https://stackoverflow.com/a/54506841/11738929 
+You can use the StringBuilder class which is mutable:
+         StringBuilder sb = new StringBuilder(inputString);
+         sb.deleteCharAt(i);
+         String result = sb.toString();
+
+
+
 
 ------Taking char input in Java-----
 see your submission here: https://codeforces.com/contest/404/submission/221046393
