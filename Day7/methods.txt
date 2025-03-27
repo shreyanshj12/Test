@@ -21,6 +21,11 @@ Use sc.next() for taking input of String without space
 Use sc.nextLine() for taking input of String with space
 
 
+-----To do Math.ceil() correctly------
+1. int num = (int) Math.ceil(anyIntegerValue/2.0) * 2;
+2. int num = ((anyIntegerValue + 1)/2) * 2;
+
+
 ------To sort list in reverse order------
 list.sort(Comparator.reverseOrder());
 See for more info: https://stackoverflow.com/questions/18073590/sort-list-in-reverse-in-order
